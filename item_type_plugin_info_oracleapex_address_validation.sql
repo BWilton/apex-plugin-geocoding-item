@@ -118,14 +118,14 @@ wwv_flow_api.create_plugin (
 '   l_name := APEX_PLUGIN.get_input_name_for_page_item(FALSE);'||unistr('\000a')||
 '        --'||unistr('\000a')||
 '        APEX_JAVASCRIPT.add_library ('||unistr('\000a')||
-'            p_name           => ''http://maps.googleapis.com/maps/api/js?key=&API_KEY.'','||unistr('\000a')||
+'            p_name           => ''https://maps.googleapis.com/maps/api/js?key=&API_KEY.'','||unistr('\000a')||
 '            p_directory      => NULL,'||unistr('\000a')||
 '            p_version        => NULL,'||unistr('\000a')||
 '            p_skip_extension => TRUE );'||unistr('\000a')||
 '        --'||unistr('\000a')||
 '        APEX_JAVASCRIPT.add_library ('||unistr('\000a')||
-'            p_name           => ''inf'||
-'o_oracleapex_address_validation.min'','||unistr('\000a')||
+'            p_name           => ''in'||
+'fo_oracleapex_address_validation.min'','||unistr('\000a')||
 '            p_directory      => p_plugin.file_prefix, '||unistr('\000a')||
 '            p_version        => NULL,'||unistr('\000a')||
 '            p_skip_extension => FALSE );'||unistr('\000a')||
@@ -134,16 +134,16 @@ wwv_flow_api.create_plugin (
 '        --'||unistr('\000a')||
 '        IF l_show_map = ''ABOVE'''||unistr('\000a')||
 '        THEN'||unistr('\000a')||
-'            SYS.HTP.PRN(''<div style="width:''||l_map_width||''px;height:''||l_map_height'||
-'||''px;" id="''||p_item.name||''_MAP"> </div>'');'||unistr('\000a')||
+'            SYS.HTP.PRN(''<div style="width:''||l_map_width||''px;height:''||l_map_heigh'||
+'t||''px;" id="''||p_item.name||''_MAP"> </div>'');'||unistr('\000a')||
 '        END IF;'||unistr('\000a')||
 '        --'||unistr('\000a')||
 '        SYS.HTP.PRN(''<input type="''||l_item_type||''" name="''||l_name||''" id="''||p_item.name||''" ''||'||unistr('\000a')||
 '                    ''value="''||sys.htf.escape_sc(p_value)||''" size="''||p_item.element_width||''" ''||'||unistr('\000a')||
 '                    ''maxlength="''||p_item.element_max_length||''" ''||'||unistr('\000a')||
 '                    p_item.element_attributes||'' />'');'||unistr('\000a')||
-'   '||
-'     --'||unistr('\000a')||
+'  '||
+'      --'||unistr('\000a')||
 '        IF l_show_map = ''BELOW'''||unistr('\000a')||
 '        THEN'||unistr('\000a')||
 '            SYS.HTP.PRN(''<div style="width:''||l_map_width||''px;height:''||l_map_height||''px;" id="''||p_item.name||''_MAP"> </div>'');'||unistr('\000a')||
@@ -152,16 +152,16 @@ wwv_flow_api.create_plugin (
 '        APEX_JAVASCRIPT.add_onload_code'||unistr('\000a')||
 '          ( p_code => ''info_oracleapex_address_validation("''||'||unistr('\000a')||
 '                       p_item.name||''", ''||'||unistr('\000a')||
-'                         ''{''||APEX_JAVASCR'||
-'IPT.add_attribute'||unistr('\000a')||
+'                         ''{''||APEX_JAVASC'||
+'RIPT.add_attribute'||unistr('\000a')||
 '                                ( p_name      => ''mapWidth'''||unistr('\000a')||
 '                                , p_value     => l_map_width'||unistr('\000a')||
 '                                , p_add_comma => TRUE'||unistr('\000a')||
 '                                )||'||unistr('\000a')||
 '                              APEX_JAVASCRIPT.add_attribute'||unistr('\000a')||
 '                                ( p_name      => ''mapHeight'''||unistr('\000a')||
-'                                , p_value     => l'||
-'_map_height'||unistr('\000a')||
+'                                , p_value     => '||
+'l_map_height'||unistr('\000a')||
 '                                , p_add_comma => TRUE'||unistr('\000a')||
 '                                )||'||unistr('\000a')||
 '                              APEX_JAVASCRIPT.add_attribute'||unistr('\000a')||
@@ -169,23 +169,23 @@ wwv_flow_api.create_plugin (
 '                                , p_value     => (l_show_map=''Y'')'||unistr('\000a')||
 '                                , p_add_comma => TRUE'||unistr('\000a')||
 '                                )||'||unistr('\000a')||
-'                       '||
-'       APEX_JAVASCRIPT.add_attribute'||unistr('\000a')||
+'                      '||
+'        APEX_JAVASCRIPT.add_attribute'||unistr('\000a')||
 '                                ( p_name      => ''advancedOptions'''||unistr('\000a')||
 '                                , p_value     => (l_advanced_options=''Y'')'||unistr('\000a')||
 '                                , p_add_comma => TRUE'||unistr('\000a')||
 '                                )||'||unistr('\000a')||
 '                              APEX_JAVASCRIPT.add_attribute'||unistr('\000a')||
 '                                ( p_name      => ''formatAddressId'''||unistr('\000a')||
-'     '||
-'                           , p_value     => l_format_address_id'||unistr('\000a')||
+'    '||
+'                            , p_value     => l_format_address_id'||unistr('\000a')||
 '                                , p_add_comma => TRUE'||unistr('\000a')||
 '                                )||'||unistr('\000a')||
 '                              APEX_JAVASCRIPT.add_attribute'||unistr('\000a')||
 '                                ( p_name      => ''addressArrayId'''||unistr('\000a')||
 '                                , p_value     => l_address_array_id'||unistr('\000a')||
-'                                , p_add_comma => TRU'||
-'E'||unistr('\000a')||
+'                                , p_add_comma => TR'||
+'UE'||unistr('\000a')||
 '                                )||'||unistr('\000a')||
 '                              APEX_JAVASCRIPT.add_attribute'||unistr('\000a')||
 '                                ( p_name      => ''addressTypeId'''||unistr('\000a')||
@@ -193,24 +193,24 @@ wwv_flow_api.create_plugin (
 '                                , p_add_comma => TRUE'||unistr('\000a')||
 '                                )||'||unistr('\000a')||
 '                              APEX_JAVASCRIPT.add_attribute'||unistr('\000a')||
-'                    '||
-'            ( p_name      => ''locationId'''||unistr('\000a')||
+'                   '||
+'             ( p_name      => ''locationId'''||unistr('\000a')||
 '                                , p_value     => l_location_id'||unistr('\000a')||
 '                                , p_add_comma => TRUE'||unistr('\000a')||
 '                                )||'||unistr('\000a')||
 '                              APEX_JAVASCRIPT.add_attribute'||unistr('\000a')||
 '                                ( p_name      => ''language'''||unistr('\000a')||
 '                                , p_value     => v(''FSP_LANGUAGE_PREFERENCE'')'||unistr('\000a')||
-'       '||
-'                         , p_add_comma => TRUE'||unistr('\000a')||
+'      '||
+'                          , p_add_comma => TRUE'||unistr('\000a')||
 '                                )||'||unistr('\000a')||
 '                              APEX_JAVASCRIPT.add_attribute'||unistr('\000a')||
 '                                ( p_name      => ''mapId'''||unistr('\000a')||
 '                                , p_value     => COALESCE(l_map_id,p_item.name||''_MAP'')'||unistr('\000a')||
 '                                , p_add_comma => FALSE'||unistr('\000a')||
 '                                )||'||unistr('\000a')||
-'                     '||
-'    ''});'' '||unistr('\000a')||
+'                    '||
+'     ''});'' '||unistr('\000a')||
 '          );'||unistr('\000a')||
 '        --'||unistr('\000a')||
 '        l_result.is_navigable := TRUE;'||unistr('\000a')||
@@ -232,7 +232,7 @@ wwv_flow_api.create_plugin (
 '<p>'||unistr('\000a')||
 '	Add the API Key as an application substitution variable called API_KEY</p>'||unistr('\000a')||
 ''
- ,p_version_identifier => '1.1'
+ ,p_version_identifier => '1.1.1'
  ,p_about_url => 'https://github.com/BWilton/apex-plugin-geocoding-item/blob/master/README.md'
   );
 wwv_flow_api.create_plugin_attribute (
@@ -438,6 +438,42 @@ wwv_flow_api.create_plugin_attr_value (
  ,p_display_sequence => 20
  ,p_display_value => 'Hidden'
  ,p_return_value => 'Hidden'
+  );
+null;
+ 
+end;
+/
+
+ 
+begin
+ 
+wwv_flow_api.g_varchar2_table := wwv_flow_api.empty_varchar2_table;
+wwv_flow_api.g_varchar2_table(1) := '4D4954204C6963656E73650D0A0D0A436F707972696768742028632920323031372C2042656E2057696C746F6E0D0A0D0A5065726D697373696F6E20697320686572656279206772616E7465642C2066726565206F66206368617267652C20746F20616E';
+wwv_flow_api.g_varchar2_table(2) := '7920706572736F6E206F627461696E696E67206120636F70790D0A6F66207468697320736F66747761726520616E64206173736F63696174656420646F63756D656E746174696F6E2066696C657320287468652022536F66747761726522292C20746F20';
+wwv_flow_api.g_varchar2_table(3) := '6465616C0D0A696E2074686520536F66747761726520776974686F7574207265737472696374696F6E2C20696E636C7564696E6720776974686F7574206C696D69746174696F6E20746865207269676874730D0A746F207573652C20636F70792C206D6F';
+wwv_flow_api.g_varchar2_table(4) := '646966792C206D657267652C207075626C6973682C20646973747269627574652C207375626C6963656E73652C20616E642F6F722073656C6C0D0A636F70696573206F662074686520536F6674776172652C20616E6420746F207065726D697420706572';
+wwv_flow_api.g_varchar2_table(5) := '736F6E7320746F2077686F6D2074686520536F6674776172652069730D0A6675726E697368656420746F20646F20736F2C207375626A65637420746F2074686520666F6C6C6F77696E6720636F6E646974696F6E733A0D0A0D0A5468652061626F766520';
+wwv_flow_api.g_varchar2_table(6) := '636F70797269676874206E6F7469636520616E642074686973207065726D697373696F6E206E6F74696365207368616C6C20626520696E636C7564656420696E20616C6C0D0A636F70696573206F72207375627374616E7469616C20706F7274696F6E73';
+wwv_flow_api.g_varchar2_table(7) := '206F662074686520536F6674776172652E0D0A0D0A54484520534F4654574152452049532050524F564944454420224153204953222C20574954484F55542057415252414E5459204F4620414E59204B494E442C2045585052455353204F520D0A494D50';
+wwv_flow_api.g_varchar2_table(8) := '4C4945442C20494E434C5544494E4720425554204E4F54204C494D4954454420544F205448452057415252414E54494553204F46204D45524348414E544142494C4954592C0D0A4649544E45535320464F52204120504152544943554C41522050555250';
+wwv_flow_api.g_varchar2_table(9) := '4F534520414E44204E4F4E494E4652494E47454D454E542E20494E204E4F204556454E54205348414C4C205448450D0A415554484F5253204F5220434F5059524947485420484F4C44455253204245204C4941424C4520464F5220414E5920434C41494D';
+wwv_flow_api.g_varchar2_table(10) := '2C2044414D41474553204F52204F544845520D0A4C494142494C4954592C205748455448455220494E20414E20414354494F4E204F4620434F4E54524143542C20544F5254204F52204F54484552574953452C2041524953494E472046524F4D2C0D0A4F';
+wwv_flow_api.g_varchar2_table(11) := '5554204F46204F5220494E20434F4E4E454354494F4E20574954482054484520534F465457415245204F522054484520555345204F52204F54484552204445414C494E475320494E205448450D0A534F4654574152452E';
+null;
+ 
+end;
+/
+
+ 
+begin
+ 
+wwv_flow_api.create_plugin_file (
+  p_id => 936443101893777641 + wwv_flow_api.g_id_offset
+ ,p_flow_id => wwv_flow.g_flow_id
+ ,p_plugin_id => 9961995684377642111 + wwv_flow_api.g_id_offset
+ ,p_file_name => 'Licence.md'
+ ,p_mime_type => 'application/octet-stream'
+ ,p_file_content => wwv_flow_api.g_varchar2_table
   );
 null;
  
